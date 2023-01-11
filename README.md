@@ -5,3 +5,7 @@ Cualquier actividad relacionada con el material alojado en este repositorio, tie
 Bajo ningún concepto deberá aplicarse en entornos en los que no se tenga la debida autorización.
 
 Su uso indebido puede derivar en consecuencias legales; actúe bajo su propia responsabilidad.
+
+# Índice
+* IDS: Snort
+* DoS (/maquinas/basic-pentesting-1.md)
