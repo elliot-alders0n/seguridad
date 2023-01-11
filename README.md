@@ -7,5 +7,5 @@ Bajo ningún concepto deberá aplicarse en entornos en los que no se tenga la de
 Su uso indebido puede derivar en consecuencias legales; actúe bajo su propia responsabilidad.
 
 # Índice
-* IDS: Snort
-* DoS (/maquinas/basic-pentesting-1.md)
+* Intrusion Detections System (IDS): [Snort](/manuales/snort.md)
+* [Denial of Service (DoS)](/manuales/dos.md)
