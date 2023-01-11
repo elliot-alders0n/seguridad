@@ -14,6 +14,6 @@ ab –n <numero_peticiones> –c  <peticiones_concurrentes> <IPservidorWeb/URLse
 ```
 
 
-
+---
 
 [manual oficial](https://httpd.apache.org/docs/2.4/programs/ab.html)
