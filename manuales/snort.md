@@ -80,6 +80,10 @@ sudo snort -T -i <interfaz> -c <ruta_archivo_configuracion>
 ### Ejecutar snort (modo consola)
 
 ```
-sudo snort -A console -q -i <interfaz> -c <ruta_archivo_configuración>
+sudo snort -A console -q -i <interfaz> -c <ruta_archivo_configuración> -K ascii
 ```
 
+## Ubicación de los logs de snort
+```
+cd /var/log/snort
+```
