@@ -87,3 +87,8 @@ sudo snort -A console -q -i <interfaz> -c <ruta_archivo_configuración> -K ascii
 ```
 cd /var/log/snort
 ```
+
+
+Referencias
+---
+Snort Workshop : How to Install, Configure, and Create Rules. (2020). YouTube. Retrieved January 11, 2023, from https://youtu.be/8lOTUqfkAhQ. 
