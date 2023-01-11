@@ -33,13 +33,51 @@ ipvar HOMENET 192.168.1.0/24
 #### Eliminar reglas por defecto
 Comentar(añadiendo un # a la izquierda) o eliminar todas las líneas que empiecen por ___include $RULE_PATH___
 
+## Estructura de una regla
+| acción        | protocolo | IP_origen | puerto_origen | -> | IP_destino | puerto_destino
+| ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+
+| acción|descripción|
+| ------------- |:-------------:|
+|alert| Generar una alerta|
+|log| Registrar el evento (log)|
+|pass|Ignorar el paquete|
+|activate||
+|dynamic||
+|drop|Bloquear + log|
+|reject|drop + envío de respuesta negativa al emisor|
+|sdrop|bloquear el paquete (no log)|
+
+| protocolo|
+| ------------- |
+|tcp|
+|udp|
+|icmp|
+|ip|
+
+### Ubicación de todas las reglas
+```
+cd /etc/snort/rules/
+```
+
+### Editar local.rules
+```
+sudo nano /etc/snort/rules/local.rules
+```
+#### Ejemplo: Añadir regla para detección de pings 
+```
+alert icmp any any -> $HOME_NET any (msg:"Prueba ICMP";sid:1000001;rev:1;)
+```
+
 ## Probar configuración
 
+### Cargar fichero de configuración
 ```
 sudo snort -T -i <interfaz> -c <ruta_archivo_configuracion>
 ```
+### Ejecutar snort (modo consola)
 
-## Estructura de una regla
-
-acción | protocolo | IP_origen | puerto_origen | -> | IP_destino | puerto_destino
+```
+sudo snort -A console -q -i <interfaz> -c <ruta_archivo_configuración>
+```
 
