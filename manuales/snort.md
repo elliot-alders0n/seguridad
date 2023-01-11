@@ -33,4 +33,13 @@ ipvar HOMENET 192.168.1.0/24
 #### Eliminar reglas por defecto
 Comentar(añadiendo un # a la izquierda) o eliminar todas las líneas que empiecen por ___include $RULE_PATH___
 
+## Probar configuración
+
+```
+sudo snort -T -i <interfaz> -c <ruta_archivo_configuracion>
+```
+
+## Estructura de una regla
+
+acción | protocolo | IP_origen | puerto_origen | -> | IP_destino | puerto_destino
 
