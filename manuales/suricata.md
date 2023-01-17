@@ -48,6 +48,10 @@ __msg:__ Mensaje de alerta <br>
 __sid:__ Identificador <br>
 __rev:__ Versión <br>
 
+### Creación del archivo que contiene la regla
+```
+echo "alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)" > /var/lib/suricata/rules/ping.rules
+```
 
 
 ### Backup snort.conf
