@@ -44,14 +44,65 @@ alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:100000
 | ------------- |:-------------:|
 |any| cualquiera |
 
+| IP_destino|descripción|
+| ------------- |:-------------:|
+|$HOME_NET| red/es especificadas en el archivo  /etc/suricata/suricata.yaml |
+
+| puerto_destino|descripción|
+| ------------- |:-------------:|
+|any| cualquiera |
+
 __msg:__ Mensaje de alerta <br>
 __sid:__ Identificador <br>
 __rev:__ Versión <br>
 
 ### Creación del archivo que contiene la regla
 ```
-echo "alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)" > /var/lib/suricata/rules/ping.rules
+echo 'alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)' > /var/lib/suricata/rules/ping.rules
 ```
+
+
+## Creación de regla de detección de intento de conexión ssh
+
+### Definición de la regla
+
+```
+alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; rev:1;)
+```
+
+| acción|descripción|
+| ------------- |:-------------:|
+|alert| Generar una alerta|
+
+| protocolo|descripción|
+| ------------- |:-------------:|
+|icmp| Ping|
+
+| IP_origen|descripción|
+| ------------- |:-------------:|
+|any| cualquiera |
+
+| puerto_origen|descripción|
+| ------------- |:-------------:|
+|any| cualquiera |
+
+| IP_destino|descripción|
+| ------------- |:-------------:|
+|$HOME_NET| red/es especificadas en el archivo  /etc/suricata/suricata.yaml |
+
+| puerto_destino|descripción|
+| ------------- |:-------------:|
+|22| puerto ssh por defecto |
+
+__msg:__ Mensaje de alerta <br>
+__sid:__ Identificador <br>
+__rev:__ Versión <br>
+
+### Creación del archivo que contiene la regla
+```
+echo 'alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)' > /var/lib/suricata/rules/ping.rules
+```
+
 
 
 ### Backup snort.conf
