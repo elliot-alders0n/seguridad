@@ -25,8 +25,29 @@ sudo mv rules /var/lib/suricata/
 ### Definición de la regla
 
 ```
-alert icmp any any -> $HOME_NET any (msg:"ICMP connection attempt"; sid:1000002; rev:1;)
+alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)
 ```
+
+| acción|descripción|
+| ------------- |:-------------:|
+|alert| Generar una alerta|
+
+| protocolo|descripción|
+| ------------- |:-------------:|
+|icmp| Ping|
+
+| IP_origen|descripción|
+| ------------- |:-------------:|
+|any| cualquiera |
+
+| puerto_origen|descripción|
+| ------------- |:-------------:|
+|any| cualquiera |
+
+__msg:__ Mensaje de alerta <br>
+__sid:__ Identificador <br>
+__rev:__ Versión <br>
+
 
 
 ### Backup snort.conf
