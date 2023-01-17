@@ -62,7 +62,7 @@ echo 'alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:
 ```
 
 
-## Creación de regla de detección de intento de conexión ssh
+## Creación de regla de detección de intento de conexión SSH
 
 ### Definición de la regla
 
@@ -76,7 +76,7 @@ alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; re
 
 | protocolo|descripción|
 | ------------- |:-------------:|
-|icmp| Ping|
+|tcp| Transport Control Protocol|
 
 | IP_origen|descripción|
 | ------------- |:-------------:|
@@ -100,7 +100,49 @@ __rev:__ Versión <br>
 
 ### Creación del archivo que contiene la regla
 ```
-echo 'alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)' > /var/lib/suricata/rules/ping.rules
+echo 'alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; rev:1;)' > /var/lib/suricata/rules/ssh.rules
+```
+
+
+## Creación de regla de detección de denegación de servicio (DoS) por el puerto 80
+
+### Definición de la regla
+
+```
+alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags: S,12; threshold: type both, track by_dst, count 500, seconds 5; classtype:misc-activity; sid:6;)
+```
+
+| acción|descripción|
+| ------------- |:-------------:|
+|alert| Generar una alerta|
+
+| protocolo|descripción|
+| ------------- |:-------------:|
+|tcp| Transport Control Protocol|
+
+| IP_origen|descripción|
+| ------------- |:-------------:|
+|any| cualquiera |
+
+| puerto_origen|descripción|
+| ------------- |:-------------:|
+|any| cualquiera |
+
+| IP_destino|descripción|
+| ------------- |:-------------:|
+|$HOME_NET| red/es especificadas en el archivo  /etc/suricata/suricata.yaml |
+
+| puerto_destino|descripción|
+| ------------- |:-------------:|
+|22| puerto ssh por defecto |
+
+__msg:__ Mensaje de alerta <br>
+__sid:__ Identificador <br>
+__rev:__ Versión <br>
+
+### Creación del archivo que contiene la regla
+```
+echo 'alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; rev:1;)' > /var/lib/suricata/rules/ssh.rules
 ```
 
 
