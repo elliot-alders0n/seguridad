@@ -10,14 +10,9 @@ systemctl status suricata
 ```
 Inicialmente debería aparecer como _disabled_.
 
-## Descargarse reglas de la comunidad
+## Descarga, descompresión y limpieza de reglas de la comunidad
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
-```
-
-## Descomprimir reglas
-```
-tar zxvf emerging.rules.tar.gz;rm emerging.rules.tar.gz
+wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz;tar zxvf emerging.rules.tar.gz;rm emerging.rules.tar.gz
 ```
 
 ## Mover directorio de reglas a su destino final
@@ -32,7 +27,6 @@ sudo mv rules /var/lib/suricata/
 ```
 alert icmp any any -> $HOME_NET any (msg:"ICMP connection attempt"; sid:1000002; rev:1;)
 ```
-
 
 
 ### Backup snort.conf
@@ -99,24 +93,7 @@ sudo nano /etc/snort/rules/local.rules
 alert icmp any any -> $HOME_NET any (msg:"Prueba ICMP";sid:1000001;rev:1;)
 ```
 
-## Probar configuración
-
-### Cargar fichero de configuración
+## Ubicación de los logs de suricata
 ```
-sudo snort -T -i <interfaz> -c <ruta_archivo_configuracion>
+cd /var/log/suricata
 ```
-### Ejecutar snort (modo consola)
-
-```
-sudo snort -A console -q -i <interfaz> -c <ruta_archivo_configuración> -K ascii
-```
-
-## Ubicación de los logs de snort
-```
-cd /var/log/snort
-```
-
-
-Referencias
----
-Snort Workshop : How to Install, Configure, and Create Rules. (2020). YouTube. Retrieved January 11, 2023, from https://youtu.be/8lOTUqfkAhQ. 
