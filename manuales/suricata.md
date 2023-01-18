@@ -25,7 +25,8 @@ sudo mv rules /var/lib/suricata/
 sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.back
 ```
 
-### (sólo en caso de querer dejarlo como al principio) Recuperar archivo de configuración original
+### (sólo en caso de querer dejarlo como al principio)
+### Recuperar archivo de configuración original
 ```
 sudo mv /etc/suricata/suricata.yaml.back /etc/suricata/suricata.yaml
 ```
