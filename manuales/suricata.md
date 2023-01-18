@@ -145,7 +145,7 @@ echo 'alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; 
 
 ### Backup del archivo de configuración
 ```
-sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.conf
+sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.back
 ```
 
 ### Editar archivo de configuración
