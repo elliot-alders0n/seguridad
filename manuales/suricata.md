@@ -44,7 +44,7 @@ alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:100000
 
 | IP_destino|descripción|
 | ------------- |:-------------:|
-|$HOME_NET| red/es especificadas en el archivo  /etc/suricata/suricata.yaml |
+|$HOME_NET| red/es a monitorizar; especificadas en el archivo  /etc/suricata/suricata.yaml |
 
 | puerto_destino|descripción|
 | ------------- |:-------------:|
@@ -84,7 +84,7 @@ alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; re
 
 | IP_destino|descripción|
 | ------------- |:-------------:|
-|$HOME_NET| red/es especificadas en el archivo  /etc/suricata/suricata.yaml |
+|$HOME_NET| red/es a monitorizar;especificadas en el archivo  /etc/suricata/suricata.yaml |
 
 | puerto_destino|descripción|
 | ------------- |:-------------:|
@@ -125,7 +125,7 @@ alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags:
 
 | IP_destino|descripción|
 | ------------- |:-------------:|
-|$HOME_NET| red/es especificadas en el archivo  /etc/suricata/suricata.yaml |
+|$HOME_NET| red/es a monitorizar; especificadas en el archivo  /etc/suricata/suricata.yaml |
 
 | puerto_destino|descripción|
 | ------------- |:-------------:|
