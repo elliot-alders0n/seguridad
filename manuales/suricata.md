@@ -31,7 +31,8 @@ sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.back
 sudo mv /etc/suricata/suricata.yaml.back /etc/suricata/suricata.yaml
 ```
 
-# Opcion a: Copia del fichero ya configurado
+# Opcion a: 
+# Copia del fichero ya configurado
 ## Descarga y reubicación del fichero
 ```
 wget https://raw.githubusercontent.com/elliot-alders0n/seguridad/main/manuales/config/suricata.yaml;sudo mv suricata.yaml /etc/suricata/
@@ -39,7 +40,8 @@ wget https://raw.githubusercontent.com/elliot-alders0n/seguridad/main/manuales/c
 ## Resumen de cambios
 ![cambios](imgs/diff.PNG)
 
-# Opcion b: Paso a paso
+# Opcion b:
+# Paso a paso
 ## Creación de regla de detección de ping
 
 ### Definición de la regla
