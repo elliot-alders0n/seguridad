@@ -168,10 +168,15 @@ Ejemplo: <br>
 ```
 HOME_NET: "[10.1.4.0/24]"
 ```
-Ejemplo:
+
+#### Definir la nueva ubicación de las reglas
+* Buscar la línea que empieza por HOME_NET
+Ctrl + W , escribir default-rule-path
+* Escribir delante de _default-rule-path:_ la ruta donde están alojadas nuestras reglas:
 ```
-ipvar HOMENET 192.168.1.0/24
+/var/lib/suricata/rules
 ```
+
 #### Eliminar reglas por defecto
 Comentar(añadiendo un # a la izquierda) o eliminar todas las líneas que empiecen por ___include $RULE_PATH___ excepto la línea 
 <br>
