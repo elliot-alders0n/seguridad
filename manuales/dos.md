@@ -37,7 +37,7 @@ set size ratio 0.6
 set grid y
 set xlabel "peticiones"
 set ylabel "tiempo de respuesta(ms)"
-plot "resultado.csv" using 9 smooth sbezier with lines title "test"
+plot "resultado.csv" using 9 smooth sbezier with lines title "www.ejemplo.com"
 ```
 
 #### Ejecutar gnuplot
