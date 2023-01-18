@@ -19,7 +19,10 @@ wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz;tar zx
 ```
 sudo mv rules /var/lib/suricata/
 ```
+# Opcion a: Copia del fichero ya configurado
 
+
+# Opcion b: Paso a paso
 ## Creación de regla de detección de ping
 
 ### Definición de la regla
