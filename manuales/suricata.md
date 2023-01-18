@@ -191,7 +191,14 @@ Ctrl + W , escribir default-rule-path
 - dos.rules
 ```
 
-
+## Activar suricata
+```
+sudo systemctl start suricata
+```
+## Ejecución de suricata
+```
+sudo suricata -c /etc/suricata/suricata.yaml -i eth0
+```
 
 ## Ubicación de los logs de suricata
 ```
