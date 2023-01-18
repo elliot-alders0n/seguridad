@@ -143,20 +143,16 @@ echo 'alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; 
 
 
 
-### Backup snort.conf
+### Backup del archivo de configuración
 ```
-sudo cp /etc/snort/snort.conf /etc/snort/snort.conf.back
-```
-
-### Crear archivo de configuración personalizado
-```
-sudo cp /etc/snort/snort.conf /etc/snort/miconf.conf
+sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.conf
 ```
 
 ### Editar archivo de configuración
 ```
-sudo nano /etc/snort/miconf.conf
+sudo nano /etc/suricata/suricata.yaml
 ```
+
 
 #### Añadir debajo de la línea ipvar HOMENET any:
 ```
@@ -209,5 +205,5 @@ alert icmp any any -> $HOME_NET any (msg:"Prueba ICMP";sid:1000001;rev:1;)
 
 ## Ubicación de los logs de suricata
 ```
-cd /var/log/suricata
+cd /var/log/suricata/
 ```
