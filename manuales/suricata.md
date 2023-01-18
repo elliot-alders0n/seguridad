@@ -201,6 +201,11 @@ sudo suricata -c /etc/suricata/suricata.yaml -i eth0
 ```
 
 ## Ubicación de los logs de suricata
+
+/var/log/suricata/
+
+
+## Mostrar últimas 10 líneas del log
 ```
-cd /var/log/suricata/
+cat /var/log/suricata/fast.log | tail -n 10
 ```
