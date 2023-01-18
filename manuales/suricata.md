@@ -154,9 +154,19 @@ sudo nano /etc/suricata/suricata.yaml
 ```
 
 
-#### Añadir debajo de la línea ipvar HOMENET any:
+#### Comentar HOME_NET actual:
+* Buscar la línea que empieza por HOME_NET
+Ctrl + W , escribir HOME_NET
+* Escribir un # delante (#HOME_NET:...)
+
+
+#### Establecer la red a monitorizar:
+
+Encima de la línea comentada escribir:<br>
+HOME_NET: "[<red/es separada/s por comas>]"<br>
+Ejemplo: <br>
 ```
-ipvar HOMENET <red>
+HOME_NET: "[10.1.4.0/24]"
 ```
 Ejemplo:
 ```
