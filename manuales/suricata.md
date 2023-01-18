@@ -20,22 +20,22 @@ wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz;tar zx
 sudo mv rules /var/lib/suricata/
 ```
 
-### Backup del archivo de configuración
+## Backup del archivo de configuración
 ```
 sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.back
 ```
 
-### (sólo en caso de querer dejarlo como al principio)
-### Recuperar archivo de configuración original
+## (sólo en caso de querer dejarlo como al principio)
+## Recuperar archivo de configuración original
 ```
 sudo mv /etc/suricata/suricata.yaml.back /etc/suricata/suricata.yaml
 ```
 
-# Creación de reglas
+## Creación de reglas
 
-## Regla de detección de ping
+### Regla de detección de ping
 
-### Definición de la regla
+#### Definición de la regla
 
 alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)
 
@@ -67,15 +67,15 @@ __msg:__ Mensaje de alerta <br>
 __sid:__ Identificador <br>
 __rev:__ Versión <br>
 
-### Creación del archivo que contiene la regla
+#### Creación del archivo que contiene la regla
 ```
 echo 'alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)' > /var/lib/suricata/rules/ping.rules
 ```
 
 
-## Regla de detección de intento de conexión SSH
+### Regla de detección de intento de conexión SSH
 
-### Definición de la regla
+#### Definición de la regla
 
 alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; rev:1;)
 
@@ -107,15 +107,15 @@ __msg:__ Mensaje de alerta <br>
 __sid:__ Identificador <br>
 __rev:__ Versión <br>
 
-### Creación del archivo que contiene la regla
+#### Creación del archivo que contiene la regla
 ```
 echo 'alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; rev:1;)' > /var/lib/suricata/rules/ssh.rules
 ```
 
 
-## Regla de detección de denegación de servicio (DoS) por el puerto 80
+### Regla de detección de denegación de servicio (DoS) por el puerto 80
 
-### Definición de la regla
+#### Definición de la regla
 
 alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags: S,12; threshold: type both, track by_dst, count 500, seconds 5; classtype:misc-activity; sid:6;)
 
@@ -149,29 +149,29 @@ __count:__ Número de peticiones <br>
 __seconds:__ Intervalo de tiempo <br>
 __sid:__ Identificador <br>
 
-### Creación del archivo que contiene la regla
+#### Creación del archivo que contiene la regla
 ```
 echo 'alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags: S,12; threshold: type both, track by_dst, count 500, seconds 5; classtype:misc-activity; sid:6;)' > /var/lib/suricata/rules/dos.rules
 ```
 
 
-# Archivo de configuración
-# Opcion a: 
-# Copia del fichero ya configurado
-## Descarga y reubicación del fichero
+## Archivo de configuración
+### Opcion a: 
+### Copia del fichero ya configurado
+#### Descarga y reubicación del fichero
 ```
 wget https://raw.githubusercontent.com/elliot-alders0n/seguridad/main/manuales/config/suricata.yaml;sudo mv suricata.yaml /etc/suricata/
 ```
-## Resumen de cambios
+#### Resumen de cambios
 ![cambios](imgs/diff.PNG)
 
-# Opcion b:
-# Paso a paso
+### Opcion b:
+### Paso a paso
 
+#### Edición del archivo de configuración
 ```
 sudo nano /etc/suricata/suricata.yaml
 ```
-
 
 #### Comentar HOME_NET actual:
 * Buscar la línea que empieza por _HOME_NET_
