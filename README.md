@@ -7,5 +7,7 @@ Bajo ningún concepto deberá aplicarse en entornos en los que no se tenga la de
 Su uso indebido puede derivar en consecuencias legales; actúe bajo su propia responsabilidad.
 
 # Índice
-* Sistema de detección de intrusiones (IDS): [Snort](/manuales/snort.md)
+* Sistema de detección de intrusiones (IDS): 
+* [Snort](/manuales/snort.md)
+* [Suricata](/manuales/suricata.md)
 * [Denial of Service (DoS)](/manuales/dos.md)
