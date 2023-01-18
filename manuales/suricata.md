@@ -19,7 +19,22 @@ wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz;tar zx
 ```
 sudo mv rules /var/lib/suricata/
 ```
+
+### Backup del archivo de configuración
+```
+sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.back
+```
+
+### (sólo en caso de querer dejarlo como al principio) Recuperar archivo de configuración original
+```
+sudo mv /etc/suricata/suricata.yaml.back /etc/suricata/suricata.yaml
+```
+
 # Opcion a: Copia del fichero ya configurado
+## Descarga y reubicación del fichero
+```
+wget https://raw.githubusercontent.com/elliot-alders0n/seguridad/main/manuales/config/suricata.yaml;sudo mv suricata.yaml /etc/suricata/
+```
 ## Resumen de cambios
 ![cambios](imgs/diff.PNG)
 
@@ -143,18 +158,6 @@ __sid:__ Identificador <br>
 ### Creación del archivo que contiene la regla
 ```
 echo 'alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags: S,12; threshold: type both, track by_dst, count 500, seconds 5; classtype:misc-activity; sid:6;)' > /var/lib/suricata/rules/dos.rules
-```
-
-
-
-### Backup del archivo de configuración
-```
-sudo cp /etc/suricata/suricata.yaml /etc/suricata/suricata.yaml.back
-```
-
-### Recuperar archivo de configuración original
-```
-sudo mv /etc/suricata/suricata.yaml.back /etc/suricata/suricata.yaml
 ```
 
 
