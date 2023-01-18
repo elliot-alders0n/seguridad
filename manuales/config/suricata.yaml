@@ -15,9 +15,7 @@
 vars:
   # more specific is better for alert accuracy and performance
   address-groups:
-    HOME_NET: "[10.1.4.0/24]"
-    #HOME_NET: "[192.168.144.0/24]"
-    #HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]"
+    HOME_NET: "[192.168.0.0/16,10.0.0.0/8,172.16.0.0/12]"
     #HOME_NET: "[192.168.0.0/16]"
     #HOME_NET: "[10.0.0.0/8]"
     #HOME_NET: "[172.16.0.0/12]"
@@ -1918,12 +1916,10 @@ napatech:
 ## Configure Suricata to load Suricata-Update managed rules.
 ##
 
-default-rule-path: /var/lib/suricata/rules
+default-rule-path: /etc/suricata/rules
 
 rule-files:
-  - ping.rules
-  - ssh.rules
-  - dos.rules
+  - suricata.rules
 
 ##
 ## Auxiliary configuration files.
