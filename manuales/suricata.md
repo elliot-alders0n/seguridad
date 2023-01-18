@@ -134,15 +134,16 @@ alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags:
 
 | puerto_destino|descripción|
 | ------------- |:-------------:|
-|22| puerto ssh por defecto |
+|80| puerto http por defecto |
 
 __msg:__ Mensaje de alerta <br>
+__count:__ Número de peticiones <br>
+__seconds:__ Intervalo de tiempo <br>
 __sid:__ Identificador <br>
-__rev:__ Versión <br>
 
 ### Creación del archivo que contiene la regla
 ```
-echo 'alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; rev:1;)' > /var/lib/suricata/rules/ssh.rules
+echo 'alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags: S,12; threshold: type both, track by_dst, count 500, seconds 5; classtype:misc-activity; sid:6;)' > /var/lib/suricata/rules/dos.rules
 ```
 
 
