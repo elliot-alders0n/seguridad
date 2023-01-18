@@ -177,6 +177,20 @@ Ctrl + W , escribir default-rule-path
 ```
 #### Incluir el nombre de las reglas creadas previamente
 * Buscar la línea que empieza por _rule-files:_
+* Eliminar la línea que contenga (- suricata.rules)
+* Añadir cada una de las reglas en líneas distintas debajo de (rule_files:)
+```
+- ping.rules
+```
+
+```
+- ssh.rules
+```
+
+```
+- dos.rules
+```
+
 
 
 ## Ubicación de los logs de suricata
