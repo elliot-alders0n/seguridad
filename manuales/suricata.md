@@ -223,6 +223,8 @@ sudo suricata -c /etc/suricata/suricata.yaml -i eth0
 
 /var/log/suricata/
 
+## Mostrar log en tiempo real
+tail -f /var/log/suricata/fast.log
 
 ## Mostrar últimas 10 líneas del log
 ```
