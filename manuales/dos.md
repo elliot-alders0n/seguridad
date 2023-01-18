@@ -10,12 +10,12 @@ apt-get install apache2-utils
 
 ## Ejecución de las peticiones en masa
 ```
-ab –n <numero_peticiones> –c  <peticiones_concurrentes> <IPservidorWeb/URLservidorWeb>
+ab -g <ruta_fichero_salida> –n <numero_peticiones> –c <peticiones_concurrentes> <IPservidorWeb/URLservidorWeb>
 ```
 
 Ejemplo:
 ```
-ab –n 200 –c  15 http://www.example.com/
+ab -g resultado.csv –n 200 –c 15 http://www.example.com/
 ```
 ---
 
