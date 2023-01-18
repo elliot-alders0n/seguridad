@@ -24,9 +24,7 @@ sudo mv rules /var/lib/suricata/
 
 ### Definición de la regla
 
-```
 alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:1000002; rev:1;)
-```
 
 | acción|descripción|
 | ------------- |:-------------:|
@@ -66,9 +64,7 @@ echo 'alert icmp any any -> $HOME_NET any (msg:"Intento de conexión ICMP"; sid:
 
 ### Definición de la regla
 
-```
 alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000003; rev:1;)
-```
 
 | acción|descripción|
 | ------------- |:-------------:|
@@ -108,9 +104,8 @@ echo 'alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:10000
 
 ### Definición de la regla
 
-```
 alert tcp any any -> $HOME_NET 80 (msg:"Potential DDoS por el puerto 80"; flags: S,12; threshold: type both, track by_dst, count 500, seconds 5; classtype:misc-activity; sid:6;)
-```
+
 
 | acción|descripción|
 | ------------- |:-------------:|
